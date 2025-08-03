@@ -1,92 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: transparent;
-      font-family: sans-serif;
-    }
-
-    .ticker-container {
-      overflow: hidden;
-      width: 100%;
-      background: transparent;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .ticker-row {
-      display: flex;
-      white-space: nowrap;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      will-change: transform;
-    }
-
-    .ticker-row span {
-      display: inline-block;
-      padding: 0.5rem 2rem;
-      font-size: 1rem;
-      color: #3E2B24;
-    }
-
-    .ticker1 {
-      animation: scroll-left 30s linear infinite;
-    }
-
-    .ticker-container:hover .ticker-row {
-      animation-play-state: paused;
-    }
-
-    @keyframes scroll-left {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    @keyframes scroll-right {
-      0% { transform: translateX(-50%); }
-      100% { transform: translateX(0); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .ticker-row {
-        animation: none !important;
-      }
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root { --speed: 35s; --gap: 2rem; --text:#3E2B24; }
+  body{margin:0;background:transparent;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif}
+  .ticker{overflow:hidden;background:transparent}
+  .track{display:flex;animation:marquee var(--speed) linear infinite;will-change:transform}
+  .slide{display:flex;flex-shrink:0}
+  .item{padding:.5rem var(--gap);white-space:nowrap;color:var(--text);font-size:1rem}
+  .ticker:hover .track{animation-play-state:paused}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.track{animation:none}}
+</style>
 </head>
 <body>
-  <div class="ticker-container">
-    <div class="ticker-container">
-      <div class="ticker-row ticker1">
-        <span>“40% higher nightly rate, 50% more revenue — u/SawDust_Creations”</span>
-        <span>“Generates ROI within weeks — Ruth K.”</span>
-        <span>“Super easy to use, great support — DNBV”</span>
-        <span>“Got more bookings on day one — Tomi Pamungkas”</span>
-        <span>“Earned more from Airbnb & VRBO — Valued Customer”</span>
-        <span>“Helps avoid underpricing — Abbie”</span>
-        <span>“Tripled nightly rate — Annette & Sarah”</span>
-        <span>“Booked almost every day in off-season — Dean”</span>
-        <span>“Boosted occupancy and ADR — Terry Whyte”</span>
-        <span>“More control, fewer calendar gaps — Facebook Host”</span>
-        <span>“Shifted to strategy, not rates — Saviani Nunes”</span>
-        <span>“Improved occupancy and revenue — Director (HotelTechReport)”</span>
-        <span>“Smart analytics, game changer — Revenue Manager”</span>
-        <span>“Better than Airbnb Smart Pricing — u/CarminSanDiego”</span>
-        <span>“Made more in 1 month than in 3 — u/koifishkid”</span>
-        <span>“More money, fewer gaps — Facebook Host”</span>
-        <span>“20–30% more revenue via automation — Theo”</span>
-        <span>“Simple multi-listing price management — Capterra Review”</span>
-        <span>“Skeptical at first, now I recommend it — u/MentalBox7789”</span>
-        <span>“Made more money than expected — Sandra”</span>
-        <span>“PriceLabs helped me make more money — Theo Paulsen”</span>
+  <div class="ticker" aria-label="Software testimonials">
+    <div class="track">
+      <!-- Copy A -->
+      <div class="slide">
+        <div class="item">“40% higher nightly rate, 50% more revenue — u/SawDust_Creations”</div>
+        <div class="item">“Generates ROI within weeks — Ruth K.”</div>
+        <div class="item">“Super easy to use, great support — DNBV”</div>
+        <div class="item">“Got more bookings on day one — Tomi Pamungkas”</div>
+        <div class="item">“Earned more from Airbnb & VRBO — Valued Customer”</div>
+        <div class="item">“Helps avoid underpricing — Abbie”</div>
+        <div class="item">“Tripled nightly rate — Annette & Sarah”</div>
+        <div class="item">“Booked almost every day in off-season — Dean”</div>
+        <div class="item">“Boosted occupancy and ADR — Terry Whyte”</div>
+        <div class="item">“More control, fewer calendar gaps — Facebook Host”</div>
+        <div class="item">“Shifted to strategy, not rates — Saviani Nunes”</div>
+        <div class="item">“Improved occupancy and revenue — Director (HotelTechReport)”</div>
+        <div class="item">“Smart analytics, game changer — Revenue Manager”</div>
+        <div class="item">“Better than Airbnb Smart Pricing — u/CarminSanDiego”</div>
+        <div class="item">“Made more in 1 month than in 3 — u/koifishkid”</div>
+        <div class="item">“More money, fewer gaps — Facebook Host”</div>
+        <div class="item">“20–30% more revenue via automation — Theo”</div>
+        <div class="item">“Simple multi-listing price management — Capterra Review”</div>
+        <div class="item">“Skeptical at first, now I recommend it — u/MentalBox7789”</div>
+        <div class="item">“Made more money than expected — Sandra”</div>
+        <div class="item">“PriceLabs helped me make more money — Theo Paulsen”</div>
+      </div>
+      <!-- Copy B (duplicate of A for seamless loop) -->
+      <div class="slide" aria-hidden="true">
+        <div class="item">“40% higher nightly rate, 50% more revenue — u/SawDust_Creations”</div>
+        <div class="item">“Generates ROI within weeks — Ruth K.”</div>
+        <div class="item">“Super easy to use, great support — DNBV”</div>
+        <div class="item">“Got more bookings on day one — Tomi Pamungkas”</div>
+        <div class="item">“Earned more from Airbnb & VRBO — Valued Customer”</div>
+        <div class="item">“Helps avoid underpricing — Abbie”</div>
+        <div class="item">“Tripled nightly rate — Annette & Sarah”</div>
+        <div class="item">“Booked almost every day in off-season — Dean”</div>
+        <div class="item">“Boosted occupancy and ADR — Terry Whyte”</div>
+        <div class="item">“More control, fewer calendar gaps — Facebook Host”</div>
+        <div class="item">“Shifted to strategy, not rates — Saviani Nunes”</div>
+        <div class="item">“Improved occupancy and revenue — Director (HotelTechReport)”</div>
+        <div class="item">“Smart analytics, game changer — Revenue Manager”</div>
+        <div class="item">“Better than Airbnb Smart Pricing — u/CarminSanDiego”</div>
+        <div class="item">“Made more in 1 month than in 3 — u/koifishkid”</div>
+        <div class="item">“More money, fewer gaps — Facebook Host”</div>
+        <div class="item">“20–30% more revenue via automation — Theo”</div>
+        <div class="item">“Simple multi-listing price management — Capterra Review”</div>
+        <div class="item">“Skeptical at first, now I recommend it — u/MentalBox7789”</div>
+        <div class="item">“Made more money than expected — Sandra”</div>
+        <div class="item">“PriceLabs helped me make more money — Theo Paulsen”</div>
       </div>
     </div>
-
+  </div>
 </body>
 </html>
